@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Leaderboard</title>
+</head>
+<body>
+
+<div id="table1">
+    <table border="1px" width="300px" cellspacing="0px" align="center">
+        <thead>
+        <tr>
+            <th>排名</th>
+            <th>客户端</th>
+            <th>分数</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for item in context.scores %}
+            <tr>
+                <td>{{ item.ranking }}</td>
+                <td>{{ item.client }}</td>
+                <td>{{ item.score }}</td>
+            </tr>
+        {% endfor %}
+        <tr>
+            <td>{{ uscore.ranking }}</td>
+            <td>{{ logname }}</td>
+            <td>{{ uscore.score }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<h5>请输入要查询的范围：
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" id="start" name="start" placeholder="起始">至<input type="text" id="end" name="end" placeholder="终止">&nbsp;&nbsp;
+        <input name="submit" id="submit" type="submit" value="查询" onclick="f()">
+    </form>
+</h5>
+</body>
+</html>

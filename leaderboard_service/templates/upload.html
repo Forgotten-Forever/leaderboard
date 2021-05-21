@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload</title>
+</head>
+<body>
+<form method='post'>
+    {% csrf_token %}
+    客户端号: {{ username }}
+    分数: <input id="score" name="score" type="number" placeholder="1~10000000" maxlength="8" minlength="1" min="0" max="10000000">
+    <input type="submit" value="提交" onclick="sub()">
+</form>
+<br>
+<p>{{ success }}</p>
+<a href="/leaderboard"><input name="" type="button" value="查询"/></a>
+</body>
+</html>
